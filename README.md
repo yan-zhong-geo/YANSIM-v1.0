@@ -1,4 +1,4 @@
-# YANSIM v1.0 - Multi-Hazard Simulation Tool
+# YANSIM v1.0: A Multi-Hazard Simulation Tool
 
 **Developer:** [Yan Zhong](https://sites.google.com/view/yanzhong-geo), [University of Geneva](https://c-cia.ch/)  
 **E-mails:** yan.zhong@unige.ch | yan.zhong.geo@gmail.com  
@@ -13,7 +13,7 @@
 
 ## Overview
 
-The **YANSIM v1.0 - Multi-Hazard Simulation Tool** is an ArcGIS Pro Python Script Toolbox for automated runout simulation and hazard exposure assessment in high mountain regions, integrating **Rock-Ice Avalanche (RIA)**, **Glacial Lake Outburst Flood (GLOF)**, and **Landslide (LS)** models into a normalized composite Exposure Index.
+The **YANSIM v1.0** is an ArcGIS Pro Python Script Toolbox for automated runout simulation and hazard exposure assessment in high mountain regions, integrating **Rock-Ice Avalanche (RIA)**, **Glacial Lake Outburst Flood (GLOF)**, and **Landslide (LS)** models into a normalized composite Exposure Index.
 
 Each hazard is modelled independently using empirical travel angle (Fahrböschung) constraints and flow-routing algorithms. Individual Exposure Index (EI) rasters are normalized to a common 0–1 scale and optionally combined into a composite **Multi-Hazard EI**.
 
