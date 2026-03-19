@@ -7,7 +7,7 @@
 **Coding language:** Python  
 
 ---
-## Overview
+## 1. Overview
  
 **YANSIM v1.0** is a multi-hazard simulation framework designed for automated runout modelling and exposure assessment in high mountain regions. It integrates three major hazard types:
  
@@ -15,18 +15,18 @@
 - Glacial Lake Outburst Floods (GLOF)
 - Landslides (LS)
  
-### Path Model
+### 1.1 Path Model
  
 Each hazard is simulated using a unified **D8 + BFS path model**. For each seed pixel (or lake outlet), the model walks downstream along the D8 flow direction, which controls the cumulative path length and slope-based termination. At each D8 node, a breadth-first search (BFS) spreads laterally to the steepest downslope neighbours, inheriting the node's path length. This design ensures that slope termination and EI accumulation are always based on true flow-path distance rather than straight-line distance, allowing the model to correctly navigate flat terrain, glaciers, and valley floors without premature path truncation.
  
-### Hazard Models
+### 1.2 Hazard Models
  
 The three hazards share the same routing framework but differ in their seed definition and EI accumulation:
  
-#### Rock-Ice Avalanche (RIA)
+#### 1.2.1 Rock-Ice Avalanche (RIA)
 Each AOI pixel is a seed. EI equals the number of upstream source pixels whose path reaches a given location (hit count). Small AOI patches below a minimum size threshold are removed before simulation.
  
-#### Glacial Lake Outburst Flood (GLOF)
+#### 1.2.2 Glacial Lake Outburst Flood (GLOF)
 Each glacial lake is a seed. The outlet pixel (lowest elevation within the lake mask) is used as the starting point, with the lake's minimum elevation as the slope reference. EI decays exponentially with flow-path distance, weighted by lake area:
  
 ```math
@@ -35,16 +35,16 @@ EI = lake\_area \times \exp(-k \times path\_length)
  
 Each lake's contribution is computed independently and summed across all lakes.
  
-#### Landslide (LS)
+#### 1.2.3 Landslide (LS)
 Same hit-count approach as RIA, with additional AOI pre-processing: small patches are removed, and pixels overlapping the RIA AOI are excluded to avoid double-counting.
  
-### Output
+### 1.3 Output
  
 The resulting Exposure Index (EI) layers are normalized to a 0–1 scale and can be combined into a composite Multi-Hazard EI. The tool is flexible: users can run individual hazards or combine multiple hazards depending on data availability.
  
 ---
  
-## Available Versions
+## 2. Available Versions
  
 YANSIM is currently available in **three different implementations**, designed for users with different technical backgrounds and computational needs:
  
@@ -54,21 +54,21 @@ YANSIM is currently available in **three different implementations**, designed f
 | Google Colab | Browser · Google Drive | Large areas · Python users | Released |
 | YANSIM GUI | Windows standalone | Non-technical users | Under development |
  
-### 1. ArcGIS Toolbox Version
+### 2.1 ArcGIS Toolbox Version
  
 - **File:** `YANSIM v1.0 Toolbox.atbx`
 - **Requirements:** ArcGIS Pro + Spatial Analyst extension + `scipy`
  
 Best suited for small study areas (e.g. watershed scale) and users familiar with ArcGIS-based GIS workflows.
  
-### 2. Google Colab Version
+### 2.2 Google Colab Version
  
 - **File:** `YANSIM v1.0.ipynb`
 - **Requirements:** Google account + Google Drive
  
 Best suited for large study areas (basin to regional scale) and computationally intensive simulations. Runs on Google cloud infrastructure — independent of local computer performance. Results can be **visualized** interactively on Google Satellite basemaps via `folium`.
  
-### 3. YANSIM Desktop *(Under Development)*
+### 2.3 YANSIM Desktop *(Under Development)*
  
 - **Platform:** Windows standalone application
 - **License:** Free and open-source
@@ -79,7 +79,7 @@ User-friendly Graphical User Interface (GUI) with no coding or GIS software requ
  
 ---
  
-## General Notes
+## 3. General Notes
  
 - All hazard inputs (RIA, GLOF, LS) are optional — the tool runs only the hazards provided
 - A composite Multi-Hazard EI is generated only when **two or more hazards** are active
@@ -87,9 +87,9 @@ User-friendly Graphical User Interface (GUI) with no coding or GIS software requ
  
 ---
  
-## Workflow — ArcGIS Toolbox Version
+## 4. Workflow — ArcGIS Toolbox Version
  
-### Inputs
+### 4.1 Inputs
  
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -109,7 +109,7 @@ User-friendly Graphical User Interface (GUI) with no coding or GIS software requ
 > **Note:** At least one AOI input must be provided.  
 > **Expected run time:** Varies by study area size and number of source pixels. RIA and LS are the most computationally intensive steps.
  
-### Outputs
+### 4.2 Outputs
  
 | Output | Description |
 |--------|-------------|
@@ -119,7 +119,7 @@ User-friendly Graphical User Interface (GUI) with no coding or GIS software requ
 | `Multi_EI.tif` | Normalized composite EI — sum of active hazard EIs, re-normalized to 0–1. Only generated when ≥2 hazards are active. |
 | `MH_temp/` | Intermediate files. Can be deleted after a successful run. |
  
-### Steps
+### 4.3 Steps
  
 1. Prepare a DEM and at least one AOI raster covering the study area.
 2. Set the output folder and optionally adjust **Tana**, **BFS max neighbours**, **Min patch pixels RIA**, and **Min patch pixels LS**.
@@ -135,19 +135,19 @@ User-friendly Graphical User Interface (GUI) with no coding or GIS software requ
  
 ---
  
-## Workflow — Google Colab Version
+## 5. Workflow — Google Colab Version
  
-### Setup
+### 5.1 Setup
  
 1. Upload all input `.tif` files to your Google Drive.
 2. Open `YANSIM v1.0.ipynb` in [Google Colab](https://colab.research.google.com).
 3. Set the runtime to **CPU**: *Runtime → Change runtime type → CPU*. GPU and TPU are not required and will not improve performance.
  
-### Inputs
+### 5.2 Inputs
  
 Same parameters as the ArcGIS Toolbox Version — see the Inputs table above.
  
-### Steps
+### 5.3 Steps
  
 1. **Cell 1 — Install dependencies:** Installs `numba`, `rasterio`, `pysheds`, `scipy`, and `folium` automatically.
 2. **Cell 2 — Mount Google Drive:** Authorise Colab to access your Drive.
@@ -166,7 +166,7 @@ Same parameters as the ArcGIS Toolbox Version — see the Inputs table above.
 8. **Cell 8 — Save outputs:** Normalizes and saves EI rasters to `OUT_DIR` on Google Drive.
 9. **Cell 9 — Visualize:** Displays results interactively on a Google Satellite basemap using `folium`. Each hazard EI layer can be toggled on/off independently. A colour ramp from green (low) to red (high) indicates relative exposure.
  
-### Outputs
+### 5.4 Outputs
  
 Same as the ArcGIS Toolbox Version. Files are saved directly to the specified Google Drive folder and remain accessible after the session ends.
  
@@ -175,7 +175,7 @@ Same as the ArcGIS Toolbox Version. Files are saved directly to the specified Go
  
 ---
  
-## Tana Parameter Guide
+## 6. Tana Parameter Guide
  
 `Tana` is the tangent of the Fahrböschung travel angle. A smaller value allows longer runout; a larger value stops the flow earlier.
  
@@ -187,6 +187,6 @@ Same as the ArcGIS Toolbox Version. Files are saved directly to the specified Go
  
 ---
  
-## License
+## 7. License
  
 See the [LICENSE](LICENSE) file for full terms.
