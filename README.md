@@ -53,12 +53,14 @@ The resulting Exposure Index (EI) layers are normalized to a 0–1 scale and can
  
 YANSIM is currently available in **three different implementations**, designed for users with different technical backgrounds and computational needs:
  
-| Version | Platform | Best for | Status |
+| Version | Platform | Best for** | Status |
 |---------|----------|----------|--------|
 | ArcGIS Toolbox | ArcGIS Pro · Windows | Small areas · GIS users | Released |
 | Google Colab | Browser · Google Drive | Large areas · Python users | Released |
 | YANSIM Desktop | Windows standalone | Non-technical users | Under development |
- 
+
+> ** This recommendation is indicative. The actual applicability and computational speed depend on the pixel counts in the RIA AOI and LS AOI, as well as the number of lakes. Typically, within a single study area: Number of RIA AOI pixels > Number of LS AOI pixels > Number of lakes.
+
 ### 2.1 ArcGIS Toolbox Version
  
 - **File:** `YANSIM v1.0 Toolbox.atbx`
