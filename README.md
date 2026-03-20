@@ -176,8 +176,7 @@ Same parameters as the ArcGIS Toolbox Version — see the Inputs table above.
 ### 5.4 Outputs
  
 Same as the ArcGIS Toolbox Version. Files are saved directly to the specified Google Drive folder and remain accessible after the session ends.
- 
-> **Note:** The first time a model runs, Numba JIT compilation adds approximately 30 seconds.  
+
 > **Note:** Free-tier Colab sessions may disconnect after extended periods. For large study areas, consider **Colab Pro** for faster CPUs and longer session times.
  
 ---
