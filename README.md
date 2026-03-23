@@ -25,7 +25,7 @@ Please cite this publication when using the model.
 Each hazard is simulated using a unified **three-step D8 + BFS path model**. For each seed pixel (or lake outlet), the model:
 
 1. **D8 main path** — walks downstream along the D8 flow direction, recording each node's exact cumulative path length (`path_len`). The path terminates when the average slope from the seed to the current position falls below the Fahrböschung threshold (`tana`). The cumulative length at termination is `total_len`.
-2. **BFS lateral extent** — from each D8 node, a breadth-first search spreads laterally to the steepest downslope neighbours (up to `bfs_max_n`). A shared visited set across all D8 nodes of a single seed ensures each pixel is expanded only once. BFS collects spatial extent only — no values are computed during this step.
+2. **BFS lateral extent** — from each D8 node, a breadth-first search (BFS) spreads laterally to the steepest downslope neighbours (up to `bfs_max_n`). A shared visited set across all D8 nodes of a single seed ensures each pixel is expanded only once. BFS collects spatial extent only — no values are computed during this step.
 3. **Nearest D8 node assignment** — each pixel in the BFS extent is assigned the EI value of its nearest D8 node (Euclidean pixel distance). EI decays quadratically from seed/outlet to end of reach:
 
 ```math
