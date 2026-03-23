@@ -90,8 +90,8 @@ YANSIM is currently available in **three different implementations**, designed f
  
 | Version | Platform | Best for | Status |
 |---------|----------|----------|--------|
-| ArcGIS Toolbox | ArcGIS Pro · Windows | Small- to medium-scale areas · GIS users | Released |
-| Google Colab | Browser · Google Drive | Medium- to large-scale areas · Python users | Released |
+| ArcGIS Toolbox | ArcGIS Pro · Windows | GIS users | Released |
+| Google Colab | Browser · Google Drive | Python users | Released |
 | YANSIM Desktop | Windows standalone | Non-technical users | Under development |
 
 > This recommendation is indicative. The actual applicability and computational speed depend on the pixel counts in the RIA AOI and LS AOI, as well as the number of lakes. Typically, within a single study area: Number of RIA AOI pixels > Number of LS AOI pixels > Number of lakes.
@@ -101,14 +101,14 @@ YANSIM is currently available in **three different implementations**, designed f
 - **File:** `YANSIM v1.0 Toolbox.atbx`
 - **Requirements:** ArcGIS Pro + Spatial Analyst extension + `scipy`
  
-Best suited for small- to medium-scale study areas (e.g. watershed or basin scale) and users familiar with ArcGIS-based GIS workflows.
+Best suited for small- to large-scale study areas (watershed to regional scale) and users familiar with ArcGIS-based GIS workflows.
  
 ### 2.2 Google Colab Version
  
 - **File:** `YANSIM v1.0.ipynb`
 - **Requirements:** Google account + Google Drive
  
-Best suited for medium- to large-scale study areas (basin to regional scale) and computationally intensive simulations. Runs on Google cloud infrastructure — independent of local computer performance. Results can be **visualized** interactively on Google Satellite basemaps via `folium`.
+Best suited for small- to large-scale study areas (watershed to regional scale) and users familiar with python workflows. Runs on Google cloud infrastructure — independent of local computer performance. Results can be **visualized** interactively on Google Satellite basemaps via `folium`.
  
 ### 2.3 YANSIM Desktop *(Under Development)*
  
