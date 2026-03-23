@@ -161,7 +161,7 @@ User-friendly Graphical User Interface (GUI) with no coding or GIS software requ
 | `LS_EI.tif` | Normalized Landslide Exposure Index (0–1). |
 | `LS_EI_raw.tif` | Raw (un-normalized) Landslide Exposure Index. |
 | `Multi_EI.tif` | Normalized composite EI — sum of active normalized hazard EIs, re-normalized to 0–1. Only generated when ≥2 hazards are active. |
-| `Multi_EI_raw.tif` | Raw composite EI — sum of active normalized hazard EIs before final re-normalization. Preserves relative magnitudes for cross-watershed comparison. Only generated when ≥2 hazards are active. |
+| `Multi_EI_raw.tif` | Raw composite EI — sum of active normalized hazard EIs before final re-normalization. Only generated when ≥2 hazards are active. |
 | `MH_temp/` | Intermediate files. Can be deleted after a successful run. |
  
 ### 4.3 Steps
