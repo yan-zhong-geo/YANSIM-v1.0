@@ -1,4 +1,4 @@
-# YANSIM v1.0: A Multi-Hazard Simulation Tool
+# Multi.Sim v1.0: A Multi-Hazard Simulation Tool
 
 **Developer:** [Yan Zhong](https://sites.google.com/view/yanzhong-geo), [University of Geneva](https://c-cia.ch/)  
 **E-mails:** yan.zhong@unige.ch | yan.zhong.geo@gmail.com  
@@ -9,14 +9,14 @@
 ---
 ## 1. Overview
  
-**YANSIM v1.0** is a multi-hazard simulation framework designed for automated runout modelling and exposure assessment in high mountain regions. It integrates three major hazard types:
+**Multi.Sim v1.0** is a multi-hazard simulation framework designed for automated runout modelling and exposure assessment in high mountain regions. It integrates three major hazard types:
  
 - Rock-Ice Avalanches (RIA)
 - Glacial Lake Outburst Floods (GLOF)
 - Landslides (LS)
 
 This model accompanies the paper:  
-> Zhong, Y., Allen, S., … Stoffel, M. (2026). *YANSIM v1.0: A Multi-Hazard Simulation Framework for Regional-Scale Exposure Assessment of Infrastructure to Mass Movement Hazards in High Mountain Regions*  
+> Zhong, Y., Allen, S., … Stoffel, M. (2026). *Multi.Sim v1.0: A Multi-Hazard Simulation Framework for Runout Modeling and Exposure Assessment in High Mountain Regions*  
 
 Please cite this publication when using the model.
  
@@ -98,19 +98,19 @@ YANSIM is currently available in **three different implementations**, designed f
 
 ### 2.1 ArcGIS Toolbox Version
  
-- **File:** `YANSIM v1.0 Toolbox.atbx`
+- **File:** `Multi.Sim v1.0 Toolbox.atbx`
 - **Requirements:** ArcGIS Pro + Spatial Analyst extension + `scipy`
  
 Best suited for small- to large-scale study areas (watershed to regional scale) and users familiar with ArcGIS-based GIS workflows.
  
 ### 2.2 Google Colab Version
  
-- **File:** `YANSIM v1.0.ipynb`
+- **File:** `Multi.Sim v1.0.ipynb`
 - **Requirements:** Google account + Google Drive
  
 Best suited for small- to large-scale study areas (watershed to regional scale) and users familiar with python workflows. Runs on Google cloud infrastructure — independent of local computer performance. Results can be **visualized** interactively on Google Satellite basemaps via `folium`.
  
-### 2.3 YANSIM Desktop *(Under Development)*
+### 2.3 Multi.Sim Desktop *(Under Development)*
  
 - **Platform:** Windows standalone application
 - **License:** Free and open-source
@@ -185,7 +185,7 @@ User-friendly Graphical User Interface (GUI) with no coding or GIS software requ
 ### 5.1 Setup
  
 1. Upload all input `.tif` files to your Google Drive.
-2. Open `YANSIM v1.0.ipynb` in [Google Colab](https://colab.research.google.com).
+2. Open `Multi.Sim v1.0.ipynb` in [Google Colab](https://colab.research.google.com).
 3. Set the runtime to **CPU**: *Runtime → Change runtime type → CPU*. GPU and TPU are not required and will not improve performance.
  
 ### 5.2 Inputs
